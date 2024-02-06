@@ -1,0 +1,10 @@
+{
+    "name": "Ausee",
+    "description": "Ausee: 次世代の画面録画アプリ",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "action": {
+        "default_title": "Ausee: 画面録画",
+        "default_popup": "index.html"
+    }
+}
