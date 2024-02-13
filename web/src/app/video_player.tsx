@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useRecoilValueLoadable } from 'recoil';
-import { videoUrlSelector } from '@/api/video_selector';
+import { videoUrlSelector } from './video_url_selector';
 
 export default function VideoPlayer({ fileName }: { fileName: string }) {
     const videoUrlLoadable = useRecoilValueLoadable(videoUrlSelector(fileName));
