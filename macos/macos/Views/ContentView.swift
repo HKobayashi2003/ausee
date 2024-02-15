@@ -1,8 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    var selectedTab = SelectedTab()
     var body: some View {
-        HomeView().environmentObject(selectedTab)
+        HomeView().environmentObject(SingleObserver(value: "録画")) // 初期選択タブを "録画" としています
     }
 }
