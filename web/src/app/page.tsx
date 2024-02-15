@@ -1,6 +1,7 @@
 import { RecoilRoot } from "recoil";
 import VideoPlayer from "@/app/video_player";
 
+// webの方のエンドポイント
 export default function Root() {
     return (
         <RecoilRoot>
