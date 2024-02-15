@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var selectedTab: SelectedTab
+    @EnvironmentObject var selectedTab: SingleObserver<String>
 
     var body: some View {
         NavigationSplitView {
             SidebarView()
         } detail: {
-            if selectedTab.selectedTab == "録画" {
+            if selectedTab.value == "録画" {
                 RecordView()
-            } else if selectedTab.selectedTab == "スクリプト" {
+            } else if selectedTab.value == "スクリプト" {
                 ScriptView()
-            } else if selectedTab.selectedTab == "設定" {
+            } else if selectedTab.value == "設定" {
                 SettingView()
             } else {
                 Text("選択されたタブに対応するビューがありません")
@@ -28,8 +28,9 @@ struct HomeView: View {
 }
 
 
+
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView().environmentObject(SelectedTab())
+        HomeView().environmentObject(SingleObserver(value: "録画"))
     }
 }

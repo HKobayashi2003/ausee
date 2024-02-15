@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SidebarView: View {
-    @EnvironmentObject var selectedTab: SelectedTab
+    @EnvironmentObject var selectedTab: SingleObserver<String>
     
     private let tabs = [
         ("camera.on.rectangle", "録画"),
@@ -25,29 +25,27 @@ struct SidebarView: View {
                 ForEach(tabs, id: \.1) { icon, name in
                     HStack {
                         Image(systemName: icon)
-                            .foregroundColor(selectedTab.selectedTab == name ? .green : .gray)
+                            .foregroundColor(selectedTab.value == name ? .green : .gray)
                             .imageScale(.large)
                         Text(name)
-                            .foregroundColor(selectedTab.selectedTab == name ? .primary : .secondary)
+                            .foregroundColor(selectedTab.value == name ? .primary : .secondary)
                     }
                     .padding(.vertical, 4)
                     .cornerRadius(8)
                     .onTapGesture {
-                        self.selectedTab.selectedTab = name
+                        self.selectedTab.value = name
                     }
-                    .listRowBackground(selectedTab.selectedTab == name ? Color.green.opacity(0.2) : Color.clear)
+                    .listRowBackground(selectedTab.value == name ? Color.green.opacity(0.2) : Color.clear)
                 }
             }
             .listStyle(SidebarListStyle())
             .frame(minWidth: 200, idealWidth: 250, maxWidth: 300)
-            
         }
     }
 }
 
 struct SidebarView_Previews: PreviewProvider {
     static var previews: some View {
-        SidebarView().environmentObject(SelectedTab())
+        SidebarView().environmentObject(SingleObserver(value: "録画"))
     }
 }
-
