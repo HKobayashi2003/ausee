@@ -13,7 +13,8 @@ export default function VideoPlayer({ fileName }: { fileName: string }) {
         case 'loading':
             return <div>Loading...</div>;
         case 'hasError':
-            return <div>Error loading video</div>;
+            // エラーを表示する
+            return <div>Error: {videoUrlLoadable.contents.message}</div>;
     }
 };
 

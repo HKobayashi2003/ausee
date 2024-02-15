@@ -1,3 +1,5 @@
+'use client'
+
 import { RecoilRoot } from "recoil";
 import VideoPlayer from "@/app/video_player";
 
@@ -13,7 +15,7 @@ function MyApp() {
     return (
         <div>
             <h1>動画再生</h1>
-            <VideoPlayer fileName="ausee-video/videos/mov_hts-samp003 (online-video-cutter.com).mp4" />
+            <VideoPlayer fileName="184069 (Original).mp4" />
         </div>
     );
 }
