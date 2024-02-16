@@ -3,7 +3,7 @@
 import Link from "next/link";
 import VideoPlayer from "@/app/view/[path]/video_player";
 import CopyToClipboardButton from "@/ui/clipboard_copy_button";
-
+// 次からこういうプルリクは承認したら、マージせずにプルリクを消去してください。
 export default function MyApp() {
     const list = [
         { name: '4K海岸', path: '/view/184069(Original).mp4' },
