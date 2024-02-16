@@ -14,6 +14,7 @@ export default function VideoPlayer({ fileName }: { fileName: string }) {
             return <div>Loading...</div>;
         case 'hasError':
             // エラーを表示する
+            console.error(videoUrlLoadable.contents);
             return <div>Error: {videoUrlLoadable.contents.message}</div>;
     }
 };

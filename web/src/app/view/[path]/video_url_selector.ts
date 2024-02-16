@@ -1,7 +1,7 @@
 "use client"
 
+import { getVideoUrl } from '@/app/api/get_video_url';
 import { selectorFamily } from 'recoil';
-import { getVideoUrl } from './api/get_video_url';
 
 export const videoUrlSelector = selectorFamily({
   key: 'videoUrl',
