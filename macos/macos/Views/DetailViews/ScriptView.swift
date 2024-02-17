@@ -1,48 +1,63 @@
 import SwiftUI
 
-// 章を表す構造体
-struct Chapter {
-    var id: String
-    var value: String
-}
-
 struct ScriptView: View {
     @State private var inputTheme = ""
+    @State private var newChapter = ""
     // 章のデータを持つ配列
     @State private var chapters: [Chapter] = [
-        //あとでサンプルを作る。
-        Chapter(id: "導入", value: ""),
-        Chapter(id: "現状分析", value: ""),
-        Chapter(id: "原因分析", value: ""),
-        Chapter(id: "解決策", value: ""),
-        Chapter(id: "まとめ", value: "")
+        Chapter(title: "導入", value: ""),
+        Chapter(title: "現状分析", value: ""),
+        Chapter(title: "原因分析", value: ""),
+        Chapter(title: "解決策", value: ""),
+        Chapter(title: "まとめ", value: "")
     ]
     
     var body: some View {
-        //スクロール可能に
-        ScrollView{
-            VStack {
-                Text("スクリプト作成")
-                    .font(.title).bold()
-                TextField("テーマを入力", text: $inputTheme)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
-                
-                Text("章構造を入力")
-                    .font(.title)
-    
-                ForEach($chapters, id: \.id) { $chapter in
-                    VStack(alignment: .leading) {
-                        Text(chapter.id) // 章のタイトルを表示
-                            .font(.title2)
-                        TextField("", text: $chapter.value)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+        NavigationSplitView {
+            ScriptSidebarView(chapters: $chapters)
+        } detail: {
+            ScrollView {
+                VStack {
+                    Text("スクリプト作成")
+                        .font(.title).bold()
+                    TextField("テーマを入力", text: $inputTheme)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+                    Text("章構造を入力")
+                        .font(.title)
+                    TextField("章を追加", text: $newChapter)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+                    HStack {
+                        Button(action: {
+                            // 章を追加する
+                            chapters.append(Chapter(title: newChapter, value: ""))
+                            newChapter = ""
+                        }) {
+                            Image(systemName: "plus")
+                        }
+                        Button(action: {
+                            // 章を削除する
+                            if chapters.count > 1 {
+                                chapters.removeLast()
+                            }
+                        }) {
+                            Image(systemName: "minus")
+                        }
                     }
-                    .padding(.bottom, 2)
+                    .padding()
+                    
+                    ForEach($chapters) { $chapter in
+                        VStack(alignment: .leading) {
+                            Text(chapter.title)
+                                .font(.title2)
+                            TextField("", text: $chapter.value)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                        }
+                        .padding()
+                    }
                 }
-                Spacer()
             }
-            .padding()
         }
     }
 }
