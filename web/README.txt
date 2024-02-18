@@ -8,3 +8,4 @@ backendでは
 uvicorn main:app --reload
 
 を実行。
+backendでは最初にpip install -r requirement.txtを実行してください。
