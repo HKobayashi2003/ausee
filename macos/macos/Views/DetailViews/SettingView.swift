@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct SettingView: View {
+    @EnvironmentObject var login: LoginObserver
+    
     var body: some View {
-        Text("設定画面")
+        VStack{
+            if login.isLoggedIn == false
+                {
+                    Button(action: {
+                        self.login.isLoggedIn = true
+                    }) {
+                        Text("ログイン")
+                    }
+                }
+            else
+                {
+                    SettingDetailView()
+                }
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
 #Preview {
-    SettingView()
+    SettingView().environmentObject(LoginObserver(isLoggedIn:false, accountName: "小林駿斗"))
 }

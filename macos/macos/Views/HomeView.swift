@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var selectedTab: SingleObserver<String>
+    @EnvironmentObject var selectedTab: TabObserver
 
     var body: some View {
         NavigationSplitView {
@@ -31,6 +31,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView().environmentObject(SingleObserver(value: "録画"))
+        HomeView().environmentObject(TabObserver(value: "録画"))
     }
 }
