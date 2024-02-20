@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SidebarView: View {
-    @EnvironmentObject var selectedTab: SingleObserver<String>
+    @EnvironmentObject var selectedTab: TabObserver
+    @EnvironmentObject var login: LoginObserver
     
     private let tabs = [
         ("camera.on.rectangle", "録画"),
@@ -46,6 +47,6 @@ struct SidebarView: View {
 
 struct SidebarView_Previews: PreviewProvider {
     static var previews: some View {
-        SidebarView().environmentObject(SingleObserver(value: "録画"))
+        SidebarView().environmentObject(TabObserver(value: "録画")).environmentObject(LoginObserver(isLoggedIn: false, accountName: "小林駿斗"))
     }
 }
