@@ -16,7 +16,7 @@ export const useVideoEditor = () => {
     const [error, setError] = useRecoilState(errorState);
     const postUrl = 'http://127.0.0.1:8000'
     
-    const postRequest = async (url: string, option: { [key: string]: boolean }) => {
+    const postRequest = async (url: string, options: { [key: string]: boolean }) => {
         setLoading(true);
         try {
             const response = await fetch(postUrl, {
@@ -24,7 +24,7 @@ export const useVideoEditor = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ url, option }),
+                body: JSON.stringify({ url, options }),
             });
             if (!response.ok) {
                 throw new Error('Network response was not ok');
