@@ -15,7 +15,7 @@ struct SettingView: View {
             if login.isLoggedIn == false
                 {
                     Button(action: {
-                        self.login.isLoggedIn = true
+                        login.isLoggedIn = true
                     }) {
                         Text("ログイン")
                     }

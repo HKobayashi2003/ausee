@@ -14,45 +14,46 @@ struct ScriptView: View {
     
     var body: some View {
         NavigationSplitView {
+            HStack {TextField("章を追加", text: $newChapter)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                Button(action: {
+                    // 章を追加する
+                    chapters.append(Chapter(title: newChapter, value: ""))
+                    newChapter = ""
+                }) {
+                    Image(systemName: "plus")
+                }
+            }
+            .padding()
             ScriptSidebarView(chapters: $chapters)
         } detail: {
             ScrollView {
                 VStack {
+                    Spacer(minLength: 30)
                     Text("スクリプト作成")
                         .font(.title).bold()
-                    TextField("テーマを入力", text: $inputTheme)
+                    TextField("タイトルを入力", text: $inputTheme)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding()
-                    Text("章構造を入力")
-                        .font(.title)
-                    TextField("章を追加", text: $newChapter)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
-                    HStack {
-                        Button(action: {
-                            // 章を追加する
-                            chapters.append(Chapter(title: newChapter, value: ""))
-                            newChapter = ""
-                        }) {
-                            Image(systemName: "plus")
-                        }
-                        Button(action: {
-                            // 章を削除する
-                            if chapters.count > 1 {
-                                chapters.removeLast()
-                            }
-                        }) {
-                            Image(systemName: "minus")
-                        }
-                    }
-                    .padding()
                     
                     ForEach($chapters) { $chapter in
                         VStack(alignment: .leading) {
-                            Text(chapter.title)
-                                .font(.title2)
-                            TextField("", text: $chapter.value)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                            HStack {
+                                Text(chapter.title)
+                                    .font(.title2)
+                                Spacer()
+                                Button(action: {
+                                    // 章を削除する
+                                    if chapters.count > 1 {
+                                        chapters.removeAll(where: { $0.id == chapter.id })
+                                    }
+                                }) {
+                                    Image(systemName: "trash")
+                                }
+                            }
+                            TextEditor(text: $chapter.value)
+                                .frame(height: 200)
+                                .border(Color.gray, width: 1)
                         }
                         .padding()
                     }
