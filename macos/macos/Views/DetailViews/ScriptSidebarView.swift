@@ -29,13 +29,6 @@ struct ScriptSidebarView: View {
                 .onDelete(perform: deleteChapter)
                 .onMove(perform: moveChapter)
             }
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    Button(action: addChapter) {
-                        Label("", systemImage: "plus")
-                    }
-                }
-            }
             .navigationTitle("スクリプト作成")
         }
     }
