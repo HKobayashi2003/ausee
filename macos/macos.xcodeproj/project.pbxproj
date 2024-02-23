@@ -17,8 +17,8 @@
 		B31044922B7D223800A9DEE8 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31044912B7D223800A9DEE8 /* SettingView.swift */; };
 		B31044942B7D22C500A9DEE8 /* ScriptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31044932B7D22C500A9DEE8 /* ScriptView.swift */; };
 		B31044992B7E68F200A9DEE8 /* Observers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31044982B7E68F200A9DEE8 /* Observers.swift */; };
-		B310449D2B812AAD00A9DEE8 /* ScriptSidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B310449C2B812AAD00A9DEE8 /* ScriptSidebarView.swift */; };
 		B31044A02B83CB9400A9DEE8 /* SettingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B310449F2B83CB9400A9DEE8 /* SettingDetailView.swift */; };
+		B31044A52B88E95900A9DEE8 /* ScriptAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31044A42B88E95900A9DEE8 /* ScriptAllView.swift */; };
 		B33D2D712B7BA58100B6425F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33D2D702B7BA58100B6425F /* HomeView.swift */; };
 		B33D2D742B7C0EF800B6425F /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33D2D732B7C0EF800B6425F /* SidebarView.swift */; };
 		B33D2D762B7C0F7100B6425F /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33D2D752B7C0F7100B6425F /* RecordView.swift */; };
@@ -57,8 +57,8 @@
 		B31044912B7D223800A9DEE8 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		B31044932B7D22C500A9DEE8 /* ScriptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptView.swift; sourceTree = "<group>"; };
 		B31044982B7E68F200A9DEE8 /* Observers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observers.swift; sourceTree = "<group>"; };
-		B310449C2B812AAD00A9DEE8 /* ScriptSidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScriptSidebarView.swift; path = macos/Views/DetailViews/ScriptSidebarView.swift; sourceTree = SOURCE_ROOT; };
 		B310449F2B83CB9400A9DEE8 /* SettingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDetailView.swift; sourceTree = "<group>"; };
+		B31044A42B88E95900A9DEE8 /* ScriptAllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptAllView.swift; sourceTree = "<group>"; };
 		B33D2D702B7BA58100B6425F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B33D2D732B7C0EF800B6425F /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		B33D2D752B7C0F7100B6425F /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
@@ -152,20 +152,28 @@
 			isa = PBXGroup;
 			children = (
 				B33D2D752B7C0F7100B6425F /* RecordView.swift */,
-				B31044912B7D223800A9DEE8 /* SettingView.swift */,
-				B310449E2B83CB6C00A9DEE8 /* SettingDetail */,
-				B31044932B7D22C500A9DEE8 /* ScriptView.swift */,
-				B310449C2B812AAD00A9DEE8 /* ScriptSidebarView.swift */,
+				B310449E2B83CB6C00A9DEE8 /* SettingView */,
+				B31044A12B879EB300A9DEE8 /* ScriptView */,
 			);
 			path = DetailViews;
 			sourceTree = "<group>";
 		};
-		B310449E2B83CB6C00A9DEE8 /* SettingDetail */ = {
+		B310449E2B83CB6C00A9DEE8 /* SettingView */ = {
 			isa = PBXGroup;
 			children = (
+				B31044912B7D223800A9DEE8 /* SettingView.swift */,
 				B310449F2B83CB9400A9DEE8 /* SettingDetailView.swift */,
 			);
-			name = SettingDetail;
+			name = SettingView;
+			sourceTree = "<group>";
+		};
+		B31044A12B879EB300A9DEE8 /* ScriptView */ = {
+			isa = PBXGroup;
+			children = (
+				B31044932B7D22C500A9DEE8 /* ScriptView.swift */,
+				B31044A42B88E95900A9DEE8 /* ScriptAllView.swift */,
+			);
+			name = ScriptView;
 			sourceTree = "<group>";
 		};
 		B33D2D722B7BA59200B6425F /* Views */ = {
@@ -328,7 +336,7 @@
 				B3066B192B724127009FAFBA /* macosApp.swift in Sources */,
 				B31044922B7D223800A9DEE8 /* SettingView.swift in Sources */,
 				B31044A02B83CB9400A9DEE8 /* SettingDetailView.swift in Sources */,
-				B310449D2B812AAD00A9DEE8 /* ScriptSidebarView.swift in Sources */,
+				B31044A52B88E95900A9DEE8 /* ScriptAllView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

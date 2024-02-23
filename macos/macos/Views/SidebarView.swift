@@ -34,13 +34,14 @@ struct SidebarView: View {
                     .padding(.vertical, 4)
                     .cornerRadius(8)
                     .onTapGesture {
-                        self.selectedTab.value = name
+                        selectedTab.value = name
                     }
                     .listRowBackground(selectedTab.value == name ? Color.green.opacity(0.2) : Color.clear)
                 }
             }
             .listStyle(SidebarListStyle())
             .frame(minWidth: 200, idealWidth: 250, maxWidth: 300)
+            
         }
     }
 }
