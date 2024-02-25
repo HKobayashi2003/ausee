@@ -14,7 +14,8 @@ struct SidebarView: View {
     private let tabs = [
         ("camera.on.rectangle", "録画"),
         ("book.pages", "スクリプト"),
-        ("gearshape", "設定")
+        ("gearshape", "設定"),
+        ("pencil.and.scribble", "Chatty")
     ]
     
     var body: some View {
