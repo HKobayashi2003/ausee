@@ -29,7 +29,7 @@ class LoginObserver: ObservableObject {
     }
 }
 
-class ChaptersViewModel: ObservableObject {
+class ChaptersServer: ObservableObject {
     @Published var chapters: [Chapter] = [
         Chapter(title: "導入", value: ""),
         Chapter(title: "現状分析", value: ""),

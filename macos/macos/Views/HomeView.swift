@@ -33,6 +33,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView().environmentObject(TabObserver(value: "録画")).environmentObject(ChaptersViewModel())
+        HomeView().environmentObject(TabObserver(value: "録画")).environmentObject(ChaptersServer())
     }
 }

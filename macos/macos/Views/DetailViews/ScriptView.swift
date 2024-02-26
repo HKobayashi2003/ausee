@@ -11,7 +11,7 @@ struct ScriptView: View {
     @State var newChapter = ""
     @State var allOrNot = true
     @State var selectedChapter: Chapter? = nil
-    @StateObject var viewModel = ChaptersViewModel()
+    @StateObject var viewModel = ChaptersServer()
     
     var body: some View {
         NavigationSplitView {
@@ -83,6 +83,6 @@ struct TextEditView: View {
 
 struct ScriptView_Previews: PreviewProvider {
     static var previews: some View {
-        ScriptView().environmentObject(ChaptersViewModel())
+        ScriptView().environmentObject(ChaptersServer())
     }
 }

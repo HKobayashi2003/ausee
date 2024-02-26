@@ -10,7 +10,7 @@ import SwiftUI
 struct ScriptAllView: View {
     @State var inputTheme = ""
     @State var newChapter = ""
-    @ObservedObject var viewModel: ChaptersViewModel
+    @ObservedObject var viewModel: ChaptersServer
     
     var body: some View {
         ScrollView {
@@ -48,7 +48,7 @@ struct ScriptAllView: View {
 
 struct ScriptAllView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = ChaptersViewModel()
-        ScriptAllView(viewModel: viewModel).environmentObject(ChaptersViewModel())
+        let viewModel = ChaptersServer()
+        ScriptAllView(viewModel: viewModel).environmentObject(ChaptersServer())
     }
 }
