@@ -20,6 +20,8 @@ struct HomeView: View {
                 ScriptView()
             } else if selectedTab.value == "設定" {
                 SettingView()
+            } else if selectedTab.value == "Chatty"{
+                ScriptGenerationView()
             } else {
                 Text("選択されたタブに対応するビューがありません")
             }
@@ -31,6 +33,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView().environmentObject(TabObserver(value: "録画"))
+        HomeView().environmentObject(TabObserver(value: "録画")).environmentObject(ChaptersServer())
     }
 }
