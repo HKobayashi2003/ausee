@@ -20,9 +20,24 @@ struct ScriptGenerationView: View {
     }
     
     var body: some View {
-        Text(promptServer.originalText + promptServer.promptText)
-            .padding()
-            .frame(width: .infinity, height: .infinity)
+        VStack
+        {
+            Text(promptServer.originalText + promptServer.promptText)
+                .padding()
+                .frame(width: .infinity, height: .infinity)
+            Button(action: {
+                //ここにAPIの処理
+                print("Generation Start")
+            }) {
+                HStack {
+                    Image(systemName: "waveform")
+                    Text("生成")
+                    
+                }
+            }
+        }
+        
+        
     }
 }
 
