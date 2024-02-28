@@ -18,6 +18,7 @@ struct SettingView: View {
                         login.isLoggedIn = true
                     }) {
                         Text("ログイン")
+                        Text("ログイン")
                     }
                 }
             else
