@@ -22,7 +22,10 @@
 		B33D2D712B7BA58100B6425F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33D2D702B7BA58100B6425F /* HomeView.swift */; };
 		B33D2D742B7C0EF800B6425F /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33D2D732B7C0EF800B6425F /* SidebarView.swift */; };
 		B33D2D762B7C0F7100B6425F /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33D2D752B7C0F7100B6425F /* RecordView.swift */; };
+		B34620BB2B89F8AA00DAD9B0 /* ScriptGenerationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34620BA2B89F8AA00DAD9B0 /* ScriptGenerationView.swift */; };
 		B3713FEB2B7D1B4900E93347 /* Greetings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3713FEA2B7D1B4900E93347 /* Greetings.swift */; };
+		B3D173872B8B8F94003FAF63 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = B3D173862B8B8F94003FAF63 /* OpenAISwift */; };
+		B3D173892B8B927F003FAF63 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D173882B8B927F003FAF63 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +65,9 @@
 		B33D2D702B7BA58100B6425F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B33D2D732B7C0EF800B6425F /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		B33D2D752B7C0F7100B6425F /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		B34620BA2B89F8AA00DAD9B0 /* ScriptGenerationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptGenerationView.swift; sourceTree = "<group>"; };
 		B3713FEA2B7D1B4900E93347 /* Greetings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Greetings.swift; sourceTree = "<group>"; };
+		B3D173882B8B927F003FAF63 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3D173872B8B8F94003FAF63 /* OpenAISwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +157,7 @@
 		B31044952B7D22D500A9DEE8 /* DetailViews */ = {
 			isa = PBXGroup;
 			children = (
+				B34620BA2B89F8AA00DAD9B0 /* ScriptGenerationView.swift */,
 				B33D2D752B7C0F7100B6425F /* RecordView.swift */,
 				B310449E2B83CB6C00A9DEE8 /* SettingView */,
 				B31044A12B879EB300A9DEE8 /* ScriptView */,
@@ -192,6 +199,7 @@
 			children = (
 				B31044982B7E68F200A9DEE8 /* Observers.swift */,
 				B3713FEA2B7D1B4900E93347 /* Greetings.swift */,
+				B3D173882B8B927F003FAF63 /* API.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -212,6 +220,9 @@
 			dependencies = (
 			);
 			name = macos;
+			packageProductDependencies = (
+				B3D173862B8B8F94003FAF63 /* OpenAISwift */,
+			);
 			productName = macos;
 			productReference = B3066B152B724127009FAFBA /* macos.app */;
 			productType = "com.apple.product-type.application";
@@ -284,6 +295,9 @@
 				Base,
 			);
 			mainGroup = B3066B0C2B724127009FAFBA;
+			packageReferences = (
+				B3D173852B8B8F94003FAF63 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+			);
 			productRefGroup = B3066B162B724127009FAFBA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -327,12 +341,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3713FEB2B7D1B4900E93347 /* Greetings.swift in Sources */,
+				B34620BB2B89F8AA00DAD9B0 /* ScriptGenerationView.swift in Sources */,
 				B31044992B7E68F200A9DEE8 /* Observers.swift in Sources */,
 				B3066B1B2B724127009FAFBA /* ContentView.swift in Sources */,
 				B33D2D742B7C0EF800B6425F /* SidebarView.swift in Sources */,
 				B31044942B7D22C500A9DEE8 /* ScriptView.swift in Sources */,
 				B33D2D762B7C0F7100B6425F /* RecordView.swift in Sources */,
 				B33D2D712B7BA58100B6425F /* HomeView.swift in Sources */,
+				B3D173892B8B927F003FAF63 /* API.swift in Sources */,
 				B3066B192B724127009FAFBA /* macosApp.swift in Sources */,
 				B31044922B7D223800A9DEE8 /* SettingView.swift in Sources */,
 				B31044A02B83CB9400A9DEE8 /* SettingDetailView.swift in Sources */,
@@ -657,6 +673,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B3D173852B8B8F94003FAF63 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B3D173862B8B8F94003FAF63 /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3D173852B8B8F94003FAF63 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B3066B0D2B724127009FAFBA /* Project object */;
 }

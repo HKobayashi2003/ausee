@@ -11,14 +11,7 @@ struct ScriptView: View {
     @State var newChapter = ""
     @State var allOrNot = true
     @State var selectedChapter: Chapter? = nil
-    
-    @State var chapters: [Chapter] = [
-        Chapter(title: "導入", value: ""),
-        Chapter(title: "現状分析", value: ""),
-        Chapter(title: "原因分析", value: ""),
-        Chapter(title: "解決策", value: ""),
-        Chapter(title: "まとめ", value: "")
-    ]
+    @StateObject var viewModel = ChaptersServer()
     
     var body: some View {
         NavigationSplitView {
@@ -28,7 +21,7 @@ struct ScriptView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     Button(action: {
                         if !newChapter.isEmpty {
-                            chapters.append(Chapter(title: newChapter, value: ""))
+                            viewModel.chapters.append(Chapter(title: newChapter, value: ""))
                             newChapter = ""
                         }
                     }) {
@@ -44,8 +37,8 @@ struct ScriptView: View {
                 }
                 
                 List {
-                    ForEach(chapters) { chapter in
-                        NavigationLink(destination: TextEditView(chapter: $chapters[chapters.firstIndex(of: chapter)!])) {
+                    ForEach($viewModel.chapters) { $chapter in
+                        NavigationLink(destination: TextEditView(chapter: $chapter)) {
                             Text(chapter.title).font(.title2)
                         }.simultaneousGesture(TapGesture().onEnded {
                             allOrNot = false
@@ -57,17 +50,17 @@ struct ScriptView: View {
             }
         } detail: {
             if allOrNot {
-                ScriptAllView()
+                ScriptAllView(viewModel: viewModel)
             } else if let selectedChapter = selectedChapter {
-                TextEditView(chapter: .constant(selectedChapter))
-            } else{
+                TextEditView(chapter: Binding.constant(selectedChapter))
+            } else {
                 Text("何も選択されてません")
             }
         }
     }
     
     private func moveChapter(from source: IndexSet, to destination: Int) {
-        chapters.move(fromOffsets: source, toOffset: destination)
+        viewModel.chapters.move(fromOffsets: source, toOffset: destination)
     }
 }
 
@@ -90,6 +83,6 @@ struct TextEditView: View {
 
 struct ScriptView_Previews: PreviewProvider {
     static var previews: some View {
-        ScriptView()
+        ScriptView().environmentObject(ChaptersServer())
     }
 }

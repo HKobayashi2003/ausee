@@ -10,14 +10,7 @@ import SwiftUI
 struct ScriptAllView: View {
     @State var inputTheme = ""
     @State var newChapter = ""
-    
-    @State var chapters: [Chapter] = [
-        Chapter(title: "導入", value: ""),
-        Chapter(title: "現状分析", value: ""),
-        Chapter(title: "原因分析", value: ""),
-        Chapter(title: "解決策", value: ""),
-        Chapter(title: "まとめ", value: "")
-    ]
+    @ObservedObject var viewModel: ChaptersServer
     
     var body: some View {
         ScrollView {
@@ -28,16 +21,15 @@ struct ScriptAllView: View {
                 TextField("タイトルを入力", text: $inputTheme)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
-                
-                ForEach($chapters) { $chapter in
+                ForEach($viewModel.chapters) { $chapter in
                     VStack(alignment: .leading) {
                         HStack {
                             Text(chapter.title)
                                 .font(.title2)
                             Spacer()
                             Button(action: {
-                                if chapters.count > 1 {
-                                    chapters.removeAll(where: { $0.id == chapter.id })
+                                if viewModel.chapters.count > 1 { // 正しい配列への参照
+                                    viewModel.chapters.removeAll(where: { $0.id == chapter.id })
                                 }
                             }) {
                                 Image(systemName: "trash")
@@ -54,6 +46,9 @@ struct ScriptAllView: View {
     }
 }
 
-#Preview {
-    ScriptAllView()
+struct ScriptAllView_Previews: PreviewProvider {
+    static var previews: some View {
+        let viewModel = ChaptersServer()
+        ScriptAllView(viewModel: viewModel).environmentObject(ChaptersServer())
+    }
 }
